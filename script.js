@@ -104,8 +104,7 @@ function updateScore(playerChoice) {
         resultText.textContent = "It's a tie";
     } else {
         const choice = choices[playerChoice];
-        console.log(choice);
-        if (choice.defeats.indexOf(computerChoice)) {
+        if (choice.defeats.indexOf(computerChoice) > -1) {
             startConfetti();
             resultText.textContent = "You won!";
             playerScoreNumber++;
@@ -155,6 +154,8 @@ function select(playerChoice) {
             break;
     };
 };
+
+// This is because the script is a module
 window.select = select;
 
 // On startup, set initial values
